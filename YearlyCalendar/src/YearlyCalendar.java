@@ -22,7 +22,7 @@ public class YearlyCalendar {
 		date = new String[365];
 	}
 	Integer year = Integer.parseInt(s);
-	Integer days =1;
+	Integer days =0;
 	
 	while(days<date.length)
 	{
