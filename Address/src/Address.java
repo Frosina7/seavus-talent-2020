@@ -56,7 +56,7 @@ public class Address {
             this.city = city;
             this.zipCode = zipCode;
         } else {
-            throw new ZipCodeLengthNotAccepted("Invalid zip code.It should contain 5 or 9 digits");
+            throw new ZipCodeLengthNotAccepted("Invalid zip code . It should contain 5 or 9 digits");
         }
     }
 
