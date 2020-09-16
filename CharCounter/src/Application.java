@@ -1,4 +1,3 @@
-import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -7,7 +6,7 @@ public class Application {
 
     public static void getChar(String s) {
 
-        HashMap<Character, Integer> table = new HashMap<Character, Integer>();
+        HashMap<Character, Integer> table = new HashMap<>();
 
         char[] s1 = s.toCharArray();
 
