@@ -31,7 +31,7 @@ public class Application {
 
     public static void main(String[] args) throws IOException {
         File file = new File("file.txt");
-        String string = FileUtils.readFileToString(file, (String) null);
+        String string = FileUtils.readFileToString(file,"UTF-8");
         String result = string.replaceAll("[^a-zA-z]", " ");
         getChar(result);
     }
