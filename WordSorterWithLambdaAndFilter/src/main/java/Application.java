@@ -56,7 +56,7 @@ public class Application {
 
         }
 
-        System.out.println(output);
+        output.stream().distinct().forEach(System.out::println);
 
 
     }
