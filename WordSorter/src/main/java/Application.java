@@ -35,9 +35,12 @@ public class Application {
         } else {
 
             System.out.println("Please type ascending or descending order .");
+            return;
         }
 
-        System.out.println(list);
+
+        list.stream().distinct().forEach(System.out::println);
+
 
     }
 
