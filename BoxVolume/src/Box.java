@@ -39,7 +39,9 @@ public class Box {
         this.depth = depth;
     }
 
-    public Integer findVolume(Integer height, Integer width, Integer depth) {
+    public Integer findVolume() {
         return height * width * depth;
     }
+
+
 }
