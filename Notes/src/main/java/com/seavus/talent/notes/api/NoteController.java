@@ -1,7 +1,6 @@
 package com.seavus.talent.notes.api;
 
 import com.seavus.talent.notes.model.Note;
-import com.seavus.talent.notes.repository.NoteRepository;
 import com.seavus.talent.notes.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,11 +12,9 @@ import java.util.List;
 @RestController
 public class NoteController {
 
-    @Autowired
+    
     private NoteService noteService;
 
-    @Autowired
-    private NoteRepository noteRepository;
 
     @Autowired
     public NoteController(NoteService noteService) {
