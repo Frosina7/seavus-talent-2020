@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Application {
-    public static void getChar(String s) {
+    public static void findWord(String s) {
 
         HashMap<String, Integer> table = new HashMap<>();
 
@@ -33,7 +33,7 @@ public class Application {
         File file = new File("file.txt");
         String string = FileUtils.readFileToString(file,"UTF-8");
         String result = string.replaceAll("[^a-zA-z]", " ");
-        getChar(result);
+        findWord(result);
     }
 
 
