@@ -2,7 +2,10 @@ import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Application {
@@ -41,13 +44,14 @@ public class Application {
 
         }
 
+
         if (order.equals("ascending")) {
 
-            Collections.sort(output, Comparator.comparingInt(o -> o.length()));
+            Collections.sort(output, (String s1, String s2) -> s1.length() - s2.length());
 
         } else if (order.equals("descending")) {
 
-            Collections.sort(output, Collections.reverseOrder(Comparator.comparingInt(o -> o.length())));
+            Collections.sort(output, (String s1, String s2) -> (s1.length() - s2.length()) * (-1));
 
         } else {
 
@@ -57,7 +61,6 @@ public class Application {
         }
 
         output.stream().distinct().forEach(System.out::println);
-
 
     }
 
