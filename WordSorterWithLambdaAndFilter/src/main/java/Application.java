@@ -32,17 +32,9 @@ public class Application {
 
         List<String> list = Arrays.asList(result.split(" "));
 
-        List<String> output = list.stream().filter(word -> word.length() >= min).filter(word -> word.length() <= max).collect(Collectors.toList());
-
-        if (min == 0) {
-
-            output = list.stream().filter(word -> word.length() <= max).collect(Collectors.toList());
-
-        } else if (max == 0) {
-
-            output = list.stream().filter(word -> word.length() >= min).collect(Collectors.toList());
-
-        }
+        List<String>output=(min==0)?list.stream().filter(word->word.length()<=max).collect(Collectors.toList())
+                :(max==0)?list.stream().filter(word->word.length()>=min).collect(Collectors.toList())
+                : list.stream().filter(word -> word.length() >= min).filter(word -> word.length() <= max).collect(Collectors.toList());
 
 
         if (order.equals("ascending")) {
@@ -51,7 +43,7 @@ public class Application {
 
         } else if (order.equals("descending")) {
 
-            Collections.sort(output, (String s1, String s2) -> (s1.length() - s2.length()) * (-1));
+            Collections.sort(output, (String s1, String s2) -> (s2.length()-s1.length()));
 
         } else {
 
@@ -66,3 +58,4 @@ public class Application {
 
 
 }
+
