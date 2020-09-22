@@ -20,17 +20,13 @@ public class Application {
 
         List<String> list = Arrays.asList(result.split(" "));
 
-        AscendingLengthStringComparator lengthStringComparator = (o1, o2) -> Integer.compare(o1.toString().length(), o2.toString().length());
-
-        DescendingLengthStringComparator lengthStringComparator1 = (o1, o2) -> Integer.compare(o1.toString().length(), o2.toString().length());
-
         if (order.equals("ascending")) {
 
-            Collections.sort(list, lengthStringComparator);
+            Collections.sort(list,new AscendingLengthStringComparator());
 
         } else if (order.equals("descending")) {
 
-            Collections.sort(list, Collections.reverseOrder(lengthStringComparator1));
+            Collections.sort(list, new DescendingLengthStringComparator());
 
         } else {
 
@@ -45,12 +41,5 @@ public class Application {
     }
 
 
-    interface AscendingLengthStringComparator extends Comparator {
-
-    }
-
-    interface DescendingLengthStringComparator extends Comparator {
-
-    }
 
 }
