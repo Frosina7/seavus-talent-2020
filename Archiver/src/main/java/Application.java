@@ -5,11 +5,6 @@ import java.util.Scanner;
 
 public class Application {
 
-    interface Archiver {
-
-        void archive(File directory, File archive) throws IOException;
-    }
-
     public static void main(String[] args) throws IOException {
 
         System.out.println("Enter the compression algorithm that you want : ");

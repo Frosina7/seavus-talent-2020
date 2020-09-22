@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 
-public class ZipArchiver implements Application.Archiver {
+public class ZipArchiver implements Archiver{
 
     public void archive(File directory, File archive) throws IOException {
 
