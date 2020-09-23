@@ -32,8 +32,9 @@ public class Application {
 
         List<String> list = Arrays.asList(result.split(" "));
 
-        List<String>output=(min==0)?list.stream().filter(word->word.length()<=max).collect(Collectors.toList())
-                :(max==0)?list.stream().filter(word->word.length()>=min).collect(Collectors.toList())
+         List<String>output= (max==0 && min==0)?list.stream().collect(Collectors.toList())
+                : min == 0 ?list.stream().filter(word-> word.length() <= max).collect(Collectors.toList())
+                : max == 0 ?list.stream().filter(word-> word.length() >= min).collect(Collectors.toList())
                 : list.stream().filter(word -> word.length() >= min).filter(word -> word.length() <= max).collect(Collectors.toList());
 
 
