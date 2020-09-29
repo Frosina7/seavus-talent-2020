@@ -37,7 +37,7 @@ public class NoteService {
     public void deleteNote(Long id) {
         notes.stream().forEach(note -> {
             if (note.getId() == id) {
-                notes.remove(id);
+                notes.remove(note);
             }
         });
     }
