@@ -28,7 +28,7 @@ public class NoteService {
 
     public Note createNote(String title,String content) {
         User user = securityService.getAuthenticatedUser();
-        Note note = new Note(title,user);
+        Note note = new Note(title,content,user);
         return noteRepository.save(note);
     }
 

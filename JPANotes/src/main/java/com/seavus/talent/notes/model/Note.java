@@ -32,8 +32,9 @@ public class Note {
     public Note() {
     }
 
-    public Note(String title,User user) {
+    public Note(String title,String content,User user) {
         this.title = title;
+        this.content=content;
         this.user=user;
     }
 
