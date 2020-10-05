@@ -15,20 +15,24 @@ public class NoteService {
     private NoteRepository noteRepository;
 
     private UserRepository userRepository;
+    
+    private TagRepository tagRepository;
 
     private SecurityService securityService;
 
 
 
-    public NoteService(NoteRepository noteRepository,UserRepository userRepository, SecurityService securityService) {
+    public NoteService(NoteRepository noteRepository,UserRepository userRepository, SecurityService securityService,TagRepository tagRepository) {
         this.noteRepository = noteRepository;
         this.userRepository=userRepository;
         this.securityService = securityService;
+        this.tagRepository=tagRepository;
     }
 
-    public Note createNote(String title,String content) {
+    public Note createNote(String title, String content, Set<Long> tagsId) {
         User user = securityService.getAuthenticatedUser();
-        Note note = new Note(title,content,user);
+        Set<Tag> tags=tagRepository.findAllById(tagsId).stream().filter(tag->tag.getUser().equals(user)).collect(Collectors.toSet());
+        Note note = new Note(title,content,user,tags);
         return noteRepository.save(note);
     }
 
@@ -53,11 +57,12 @@ public class NoteService {
     }
 
 
-    public Note updateNote(Long id, Note note) throws Exception{
+    public Note updateNote(Long id, Note note,Set<Long>tagsId) throws Exception{
 
         Note note1=noteRepository.findById(id).orElseThrow(()->new Exception());
         note1.setTitle(note.getTitle());
         note1.setContent(note.getContent());
+        note1.setTags(note.getTags());
         return noteRepository.save(note1);
     }
 
