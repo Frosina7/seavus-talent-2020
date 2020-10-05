@@ -29,13 +29,12 @@ public class NoteService {
         this.tagRepository=tagRepository;
     }
 
-    public Note createNote(String title, String content, Set<Long> tagsId) {
+    public Note createNote(String title, String content, List<Long> tagsId) {
         User user = securityService.getAuthenticatedUser();
-        Set<Tag> tags=tagRepository.findAllById(tagsId).stream().filter(tag->tag.getUser().equals(user)).collect(Collectors.toSet());
+        List<Tag> tags=tagRepository.findAllById(tagsId).stream().filter(tag -> tag.getUser().equals(user)).collect(Collectors.toList());
         Note note = new Note(title,content,user,tags);
         return noteRepository.save(note);
     }
-
     public Optional<Note> findNote(Long id) {
 
         return noteRepository.findById(id);
@@ -57,12 +56,14 @@ public class NoteService {
     }
 
 
-    public Note updateNote(Long id, Note note,Set<Long>tagsId) throws Exception{
+     public Note updateNote(String title,String content,Long id,List<Long>tagsId) throws Exception{
 
+        User user=securityService.getAuthenticatedUser();
         Note note1=noteRepository.findById(id).orElseThrow(()->new Exception());
-        note1.setTitle(note.getTitle());
-        note1.setContent(note.getContent());
-        note1.setTags(note.getTags());
+        List<Tag> tags=tagRepository.findAllById(tagsId).stream().filter(tag -> tag.getUser().equals(user)).collect(Collectors.toList());
+        note1.setTitle(title);
+        note1.setContent(content);
+        note1.setTags(tags);
         return noteRepository.save(note1);
     }
 
