@@ -19,7 +19,7 @@ public class Note {
     private User user;
 
     @ManyToMany
-    private Set<Tag>tags;
+    private List<Tag>tags;
 
     public String getContent() {
         return content;
@@ -61,13 +61,14 @@ public class Note {
         this.user = user;
     }
 
-    public Set<Tag> getTags() {
+   public List<Tag> getTags() {
         return tags;
     }
 
-    public void setTags(Set<Tag> tags) {
+    public void setTags(List<Tag> tags) {
         this.tags = tags;
     }
+
 
     @Override
     public String toString() {
