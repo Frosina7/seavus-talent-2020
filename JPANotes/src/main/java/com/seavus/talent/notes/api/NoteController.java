@@ -25,16 +25,17 @@ public class NoteController {
         this.securityService = securityService;
     }
 
-    @PostMapping("/api/notes")
+     @PostMapping("/api/notes")
     public Note createNote(@RequestBody CreateNoteRequest request) {
 
-        return noteService.createNote(request.title,request.content);
+        return noteService.createNote(request.title,request.content,request.tagsId);
     }
 
     public static class CreateNoteRequest {
 
         public String content;
         public String title;
+        public Set<Long> tagsId=new HashSet<>();
     }
 
     @GetMapping("/api/notes/{id}")
@@ -63,10 +64,10 @@ public class NoteController {
 
     }
 
-    @PutMapping("/api/notes/{id}")
-    public Note updateNote(@PathVariable Long id, @RequestBody Note note) throws Exception {
+     @PutMapping("/api/notes/{id}")
+    public Note updateNote(@PathVariable Long id, @RequestBody Note note,@RequestBody Set<Long> tagsId) throws Exception {
 
-        return noteService.updateNote(id, note);
+        return noteService.updateNote(id, note,tagsId);
 
     }
 
