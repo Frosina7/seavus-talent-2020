@@ -19,7 +19,7 @@ public class Note {
     private User user;
 
     @ManyToMany
-    private List<Tag>tags;
+    private Set<Tag>tags;
 
     public String getContent() {
         return content;
@@ -32,10 +32,11 @@ public class Note {
     public Note() {
     }
 
-    public Note(String title,String content,User user) {
+    public Note(String title, String content, User user, Set<Tag> tags) {
         this.title = title;
         this.content=content;
         this.user=user;
+        this.tags=tags;
     }
 
     public Long getId() {
@@ -60,11 +61,11 @@ public class Note {
         this.user = user;
     }
 
-    public List<Tag> getTags() {
+    public Set<Tag> getTags() {
         return tags;
     }
 
-    public void setTags(List<Tag> tags) {
+    public void setTags(Set<Tag> tags) {
         this.tags = tags;
     }
 
