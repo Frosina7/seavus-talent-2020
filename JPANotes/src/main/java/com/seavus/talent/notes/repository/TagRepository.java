@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface TagRepository  extends JpaRepository<Tag,Long> {
 
-    List<Tag> findByUser(User user);
+    List<Tag> findByUserId(Long id);
 
     @Transactional
     void deleteById(Long id);
