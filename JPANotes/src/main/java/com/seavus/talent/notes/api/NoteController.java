@@ -35,7 +35,7 @@ public class NoteController {
 
         public String content;
         public String title;
-        public Set<Long> tagsId=new HashSet<>();
+        public List<Long> tagsId=new ArrayList<>();
     }
 
     @GetMapping("/api/notes/{id}")
