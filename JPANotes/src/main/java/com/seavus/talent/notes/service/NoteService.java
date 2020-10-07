@@ -29,7 +29,7 @@ public class NoteService {
         this.tagRepository=tagRepository;
     }
 
-    public Note createNote(String title, String content, List<Long> tagsId) {
+     public Note createNote(String title, String content, List<Long> tagsId) {
         User user = securityService.getAuthenticatedUser();
         List<Tag> tags=tagRepository.findAllById(tagsId).stream().filter(tag -> tag.getUser().equals(user)).collect(Collectors.toList());
         Note note = new Note(title,content,user,tags);
