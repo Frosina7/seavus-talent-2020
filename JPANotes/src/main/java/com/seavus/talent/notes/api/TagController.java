@@ -42,10 +42,9 @@ public class TagController {
     }
 
     @GetMapping("/api/tags")
-    public List<Tag> findTags() {
+    public List<Tag> findTagsByUserId() {
 
-        User user = securityService.getAuthenticatedUser();
-        return tagService.findTags(user);
+        return tagService.findByUser(securityService.getAuthenticatedUser().getId());
     }
 
     @DeleteMapping("/api/tags/{id}")
