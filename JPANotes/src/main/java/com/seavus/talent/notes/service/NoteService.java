@@ -1,13 +1,16 @@
 package com.seavus.talent.notes.service;
 
 import com.seavus.talent.notes.model.Note;
+import com.seavus.talent.notes.model.Tag;
 import com.seavus.talent.notes.model.User;
 import com.seavus.talent.notes.repository.NoteRepository;
+import com.seavus.talent.notes.repository.TagRepository;
 import com.seavus.talent.notes.repository.UserRepository;
 import com.seavus.talent.notes.security.SecurityService;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class NoteService {
