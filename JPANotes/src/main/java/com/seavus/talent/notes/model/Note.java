@@ -32,12 +32,13 @@ public class Note {
     public Note() {
     }
 
-    public Note(String title, String content, User user, Set<Tag> tags) {
+     public Note(String title, String content, User user, List<Tag> tags) {
         this.title = title;
         this.content=content;
         this.user=user;
         this.tags=tags;
     }
+
 
     public Long getId() {
         return id;
